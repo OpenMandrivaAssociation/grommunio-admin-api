@@ -10,6 +10,8 @@ BuildRequires:	cmake
 BuildSystem:	cmake
 BuildArch:	noarch
 BuildRequires:	python
+BuildRequires:	pkgconfig(systemd)
+BuildRequires:	python%{pyver}dist(pyyaml)
 
 %description
 grommunio Admin API is the central API component of grommunio managing
