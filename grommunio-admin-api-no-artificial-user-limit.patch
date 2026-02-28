@@ -1,0 +1,15 @@
+diff -up grommunio-admin-api-1.18/tools/license.py.omv~ grommunio-admin-api-1.18/tools/license.py
+--- grommunio-admin-api-1.18/tools/license.py.omv~	2026-02-28 23:25:44.603541658 +0100
++++ grommunio-admin-api-1.18/tools/license.py	2026-02-28 23:29:37.523212019 +0100
+@@ -45,9 +45,10 @@ class GrommunioLicense(GenericObject):
+ 
+ 
+ def _defaultLicense():
++    # 2**64-1 users should be sufficient
+     return GrommunioLicense(cert=None,
+                             file=None,
+-                            users=5,
++                            users=18446744073709551615,
+                             product="Community",
+                             notBefore=datetime(1000, 1, 1, tzinfo=TZ),
+                             notAfter=datetime(MAXYEAR, 12, 31, 23, 59, 59, tzinfo=TZ))
