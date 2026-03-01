@@ -27,6 +27,9 @@ Requires:	python%{pyver}dist(cryptography)
 Requires:	python%{pyver}dist(pyexmdb)
 Requires:	python%{pyver}dist(flask)
 Requires:	python%{pyver}dist(jwt)
+Requires:	python%{pyver}dist(dnspython)
+Requires:	python%{pyver}dist(psutil)
+Requires:	python%{pyver}dist(systemd-python)
 
 %patchlist
 grommunio-admin-api-no-artificial-user-limit.patch
