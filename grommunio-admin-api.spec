@@ -55,8 +55,28 @@ m grommunio gromox
 m grommunio gromoxcf
 EOF
 
+cat >%{buildroot}%{_sysconfdir}/grommunio-admin-api/conf.d/defaults.yaml <<'EOF'
+defaults:
+  pop3_imap: 1
+  privWeb: 1
+  privEas: 1
+  status: 0
+EOF
+cat >%{buildroot}%{_sysconfdir}/grommunio-admin-api/conf.d/security.yaml <<'EOF'
+security:
+  jwtPrivateKeyFile: %{_sysconfdir}/grommunio-admin-common/jwt-private.pem
+  jwtPublicKeyFile: %{_sysconfdir}/grommunio-admin-common/jwt-public.pem
+  rsaKeySize: 2048
+EOF
+
 %files
-%{_sysconfdir}/grommunio-admin-api/conf.d
+%dir %{_sysconfdir}/grommunio-admin-api
+%dir %{_sysconfdir}/grommunio-admin-api/conf.d
+%config %{_sysconfdir}/grommunio-admin-api/conf.d/defaults.yaml
+%config %{_sysconfdir}/grommunio-admin-api/conf.d/security.yaml
+%dir %attr(755,grommunio,www) %{_sysconfdir}/grommunio-admin-common
+%ghost %{_sysconfdir}/grommunio-admin-common/jwt-public.pem
+%ghost %{_sysconfdir}/grommunio-admin-common/jwt-private.pem
 %{_sysconfdir}/sudoers.d/grommunio-sudo
 %{_bindir}/grommunio-admin
 %{_unitdir}/grommunio-admin-api.service
