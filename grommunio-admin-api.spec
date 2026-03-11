@@ -1,6 +1,6 @@
 Name:		grommunio-admin-api
 Version:	1.18
-Release:	3
+Release:	4
 Source0:	https://github.com/grommunio/admin-api/releases/download/%{version}/grommunio-admin-api-%{version}.tar.zst
 Summary:	Management REST API for grommunio
 URL:		https://github.com/grommunio/admin-api
@@ -26,7 +26,7 @@ Requires:	python%{pyver}dist(legacycrypt)
 Requires:	python%{pyver}dist(cryptography)
 Requires:	python%{pyver}dist(pyexmdb)
 Requires:	python%{pyver}dist(flask)
-Requires:	python%{pyver}dist(jwt)
+Requires:	python%{pyver}dist(pyjwt)
 Requires:	python%{pyver}dist(dnspython)
 Requires:	python%{pyver}dist(psutil)
 Requires:	python%{pyver}dist(systemd-python)
