@@ -1,0 +1,31 @@
+diff -up grommunio-admin-api-1.18/main.py.omv~ grommunio-admin-api-1.18/main.py
+--- grommunio-admin-api-1.18/main.py.omv~	2026-03-13 16:15:54.442444149 +0100
++++ grommunio-admin-api-1.18/main.py	2026-03-13 16:18:03.723817240 +0100
+@@ -9,6 +9,14 @@ Can be used to run the API in stand-alon
+ in combination with a WSGI server using the API object as callable
+ """
+ 
++# If it is available, load requests_unixsocket and register it globally.
++# This allows e.g. antispamUrl: http+unix://%2Frun%2Frspamd%2Fcontroller.sock
++try:
++    import requests_unixsocket
++    requests_unixsocket.monkeypatch()
++except Exception:
++    pass
++
+ if __name__ == '__main__':
+     import os
+     import sys
+diff -up grommunio-admin-api-1.18/cli/remote.py.omv~ grommunio-admin-api-1.18/cli/remote.py
+diff -up grommunio-admin-api-1.18/endpoints/system/misc.py.omv~ grommunio-admin-api-1.18/endpoints/system/misc.py
+--- grommunio-admin-api-1.18/endpoints/system/misc.py.omv~	2026-03-13 16:28:55.640647911 +0100
++++ grommunio-admin-api-1.18/endpoints/system/misc.py	2026-03-13 16:31:31.127539363 +0100
+@@ -199,7 +199,7 @@ def rspamdProxy(path):
+     if path not in conf["antispamEndpoints"]:
+         return jsonify(message="Endpoint not allowed"), 403
+     try:
+-        res = requests.get(conf["antispamUrl"]+"/"+path, request.args, stream=True)
++        res = requests.get(conf["antispamUrl"]+"/"+path, params=request.args, stream=True)
+     except BaseException as err:
+         API.logger.error(type(err).__name__+": "+" - ".join(str(arg) for arg in err.args))
+         return jsonify(message="Failed to connect to antispam"), 503

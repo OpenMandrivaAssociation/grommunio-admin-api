@@ -1,6 +1,6 @@
 Name:		grommunio-admin-api
 Version:	1.18
-Release:	4
+Release:	5
 Source0:	https://github.com/grommunio/admin-api/releases/download/%{version}/grommunio-admin-api-%{version}.tar.zst
 Summary:	Management REST API for grommunio
 URL:		https://github.com/grommunio/admin-api
@@ -30,10 +30,15 @@ Requires:	python%{pyver}dist(pyjwt)
 Requires:	python%{pyver}dist(dnspython)
 Requires:	python%{pyver}dist(psutil)
 Requires:	python%{pyver}dist(systemd-python)
+# Really optional, but it's small and the effects of not having it are
+# not very obvious (error when configuring antispam to talk to
+# rspamd using a unix socket)
+Requires:	python%{pyver}dist(requests-unixsocket)
 
 %patchlist
 grommunio-admin-api-no-artificial-user-limit.patch
 grommunio-admin-api-www-group.patch
+grommunio-admin-api-antispam-unixsocket.patch
 
 %description
 grommunio Admin API is the central API component of grommunio managing
