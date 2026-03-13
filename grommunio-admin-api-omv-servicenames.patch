@@ -6,7 +6,7 @@ diff -up grommunio-admin-api-1.18/CMakeLists.txt.omv~ grommunio-admin-api-1.18/C
  find_package(PkgConfig REQUIRED)
  
 -set(PHP_FPM_SERVICE "php-fpm.service" CACHE STRING "Name of the PHP FPM service")
-+set(PHP_FPM_SERVICE "php-fpm@grommunio-web.service" CACHE STRING "Name of the PHP FPM service")
++set(PHP_FPM_SERVICE "php-fpm@grommunio.service" CACHE STRING "Name of the PHP FPM service")
  
  set(COMMONCONFDIR ${CMAKE_INSTALL_FULL_SYSCONFDIR}/grommunio-admin-common)
  set(COMMONDIR ${CMAKE_INSTALL_FULL_DATADIR}/grommunio-admin-common)
