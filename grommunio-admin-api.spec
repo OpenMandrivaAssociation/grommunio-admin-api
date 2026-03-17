@@ -56,6 +56,7 @@ mkdir -p %{buildroot}%{_sysconfdir}/grommunio-admin-api/conf.d
 %install -a
 mkdir -p %{buildroot}%{_sysusersdir}/
 cat >%{buildroot}%{_sysusersdir}/grommunio.conf <<EOF
+g grommunio
 u grommunio - "Grommunio Groupware"
 m grommunio gromox
 m grommunio gromoxcf
