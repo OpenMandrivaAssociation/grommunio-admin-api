@@ -1,6 +1,6 @@
 Name:		grommunio-admin-api
-Version:	1.18
-Release:	7
+Version:	1.20
+Release:	1
 Source0:	https://github.com/grommunio/admin-api/releases/download/%{version}/grommunio-admin-api-%{version}.tar.zst
 Summary:	Management REST API for grommunio
 URL:		https://github.com/grommunio/admin-api
