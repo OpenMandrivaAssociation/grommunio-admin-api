@@ -1,7 +1,7 @@
 Name:		grommunio-admin-api
 Version:	1.20
-Release:	2
-Source0:	https://github.com/grommunio/admin-api/releases/download/%{version}/grommunio-admin-api-%{version}.tar.zst
+Release:	3
+Source0:	https://github.com/grommunio/admin-api/archive/refs/tags/%{version}.tar.gz#/grommunio-admin-api-%{version}.tar.gz
 Summary:	Management REST API for grommunio
 URL:		https://github.com/grommunio/admin-api
 License:	AGPL-3.0
@@ -28,6 +28,10 @@ Requires:	python%{pyver}dist(pyexmdb)
 Requires:	python%{pyver}dist(flask)
 Requires:	python%{pyver}dist(pyjwt)
 Requires:	python%{pyver}dist(dnspython)
+Requires:	python%{pyver}dist(idna)
+# openapi-core >= 0.19 (what cooker ships) loads the spec through these
+Requires:	python%{pyver}dist(jsonschema)
+Requires:	python%{pyver}dist(jsonschema-path)
 Requires:	python%{pyver}dist(psutil)
 Requires:	python%{pyver}dist(systemd-python)
 # Really optional, but it's small and the effects of not having it are
