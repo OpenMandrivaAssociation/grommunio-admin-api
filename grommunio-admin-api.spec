@@ -1,6 +1,6 @@
 Name:		grommunio-admin-api
 Version:	1.20
-Release:	3
+Release:	4
 Source0:	https://github.com/grommunio/admin-api/archive/refs/tags/%{version}.tar.gz#/grommunio-admin-api-%{version}.tar.gz
 Summary:	Management REST API for grommunio
 URL:		https://github.com/grommunio/admin-api
@@ -13,6 +13,7 @@ BuildRequires:	python
 BuildRequires:	pkgconfig(systemd)
 BuildRequires:	python%{pyver}dist(pyyaml)
 # FIXME why does the rpm dependency generator not see those?
+# The service is ExecStart=/usr/sbin/uwsgi --ini ... with plugin = python3.
 Requires:	python%{pyver}dist(argcomplete)
 Requires:	python%{pyver}dist(mattermostdriver)
 Requires:	python%{pyver}dist(ldap3)
@@ -38,6 +39,7 @@ Requires:	python%{pyver}dist(systemd-python)
 # not very obvious (error when configuring antispam to talk to
 # rspamd using a unix socket)
 Requires:	python%{pyver}dist(requests-unixsocket)
+Requires:	python%{pyver}dist(uwsgi)
 
 %patchlist
 grommunio-admin-api-no-artificial-user-limit.patch

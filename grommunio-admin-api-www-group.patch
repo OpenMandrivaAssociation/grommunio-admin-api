@@ -27,4 +27,4 @@ diff -up grommunio-admin-api-1.18/data/tmpfiles-grommunio-admin-api.conf.omv~ gr
 +++ grommunio-admin-api-1.18/data/tmpfiles-grommunio-admin-api.conf	2026-03-01 16:08:56.543042560 +0100
 @@ -1 +1 @@
 -d /run/grommunio 0775 grommunio nginx
-+d /run/grommunio 0775 grommunio www
++d /run/grommunio 0775 root www
